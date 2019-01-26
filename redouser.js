@@ -16,42 +16,30 @@ leerCarpeta.obtenerArchivos(carpetas.archivos)
     .then(archivos => {
 
         for (archivo in archivos) {
-            //console.log(archivos[archivo])
+
             let contenidoArchivo =  recodificar.extraerContenidoRecodificado(
                 archivos[archivo])
 
-            // contenidoArchivo = contenidoArchivo.replace(/\\n/g, '\n')
-            // contenidoArchivo = contenidoArchivo.replace(/\\/g, '')
-            //pcrArchivos.crearArchivo('Testing/ContenidoArchivo.txt', contenidoArchivo)
-            //console.log(contenidoArchivo)
             let contenidoModificado = contenidoArchivo + '\n['
             contenidoModificado = regEx.jsonReplace.clsComentarios(contenidoModificado)
 
             let componentesArchivo = contenidoModificado.match(
                 regEx.expresiones.componentesIntelisis
             )
-            //let camposOrdenados = []
-           // let cont = 0
+
             for (componente in componentesArchivo) {
-                //console.log(componentesArchivo[componente])
-               // console.log(componente, componentesArchivo[componente])
-               //console.log(regEx.expresiones.campoConsecutivo)
+
                 if (regEx.expresiones.campoConsecutivo.test(componentesArchivo[componente])) {
-                    //pcrArchivos.crearArchivo('Testing/Componente-' + cont + '.txt', componentesArchivo[componente])
-                    //console.log(componentesArchivo[componente])
-                    let camposUnidosComponente = unir.camposComponente (
-                        componentesArchivo[componente]
-                    )
-                    // console.log(componente, camposUnidosComponente)
 
                     contenidoArchivo = remplazar.remplazarContenido(contenidoArchivo,
-                        componentesArchivo[componente], camposUnidosComponente
+                        componentesArchivo[componente], 
+                        unir.camposComponente (
+                            componentesArchivo[componente]
+                        )
                     )
                 }
             }
-            //cont++
-            // pcrArchivos.crearArchivo('Testing/ComponentesJoin.txt', componentesArchivo.join('\n'))
-            
+
             contenidoArchivo = contenidoArchivo.replace(/^\[$/m, '')
 
             contenidoArchivo = regEx.jsonReplace.clsSaltoLineaVacio(contenidoArchivo)
