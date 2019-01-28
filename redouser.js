@@ -25,20 +25,21 @@ leerCarpeta.obtenerArchivos(carpetas.archivos)
             //pcrArchivos.crearArchivo('Testing/ContenidoArchivo.txt', contenidoArchivo)
             //console.log(contenidoArchivo)
             let contenidoModificado = contenidoArchivo + '\n['
-            contenidoModificado = regEx.jsonReplace.clsComentarios(contenidoModificado)
+            contenidoModificado = regEx.jsonReplace.clsComentariosIntls(contenidoModificado)
 
             let componentesArchivo = contenidoModificado.match(
-                regEx.expresiones.componentesIntelisis
+                regEx.expresiones.componentesIntls
             )
-            //let camposOrdenados = []
-           // let cont = 0
+            // let camposOrdenados = []
+            // let cont = 0
             for (componente in componentesArchivo) {
-                //console.log(componentesArchivo[componente])
-               // console.log(componente, componentesArchivo[componente])
-               //console.log(regEx.expresiones.campoConsecutivo)
-                if (regEx.expresiones.campoConsecutivo.test(componentesArchivo[componente])) {
-                    //pcrArchivos.crearArchivo('Testing/Componente-' + cont + '.txt', componentesArchivo[componente])
-                    //console.log(componentesArchivo[componente])
+                // console.log(componente,componentesArchivo[componente])
+                // pcrArchivos.crearArchivo('Testing/Componente-' + cont + '.txt', componentesArchivo[componente])
+                // console.log(componente, componentesArchivo[componente])
+                // console.log(regEx.expresiones.campoConsecutivo)
+                if (regEx.expresiones.campoConsecutivoIntls.test(componentesArchivo[componente])) {
+                    // pcrArchivos.crearArchivo('Testing/Componente-' + cont + '.txt', componentesArchivo[componente])
+                    // console.log(componentesArchivo[componente])
                     let camposUnidosComponente = unir.camposComponente (
                         componentesArchivo[componente]
                     )
@@ -48,14 +49,14 @@ leerCarpeta.obtenerArchivos(carpetas.archivos)
                         componentesArchivo[componente], camposUnidosComponente
                     )
                 }
+                // cont++
             }
-            //cont++
-            // pcrArchivos.crearArchivo('Testing/ComponentesJoin.txt', componentesArchivo.join('\n'))
             
+            // pcrArchivos.crearArchivo('Testing/ComponentesJoin.txt', componentesArchivo.join('\n'))
             contenidoArchivo = contenidoArchivo.replace(/^\[$/m, '')
 
             contenidoArchivo = regEx.jsonReplace.clsSaltoLineaVacio(contenidoArchivo)
-            contenidoArchivo = regEx.jsonReplace.addEspacioComponente(contenidoArchivo)
+            contenidoArchivo = regEx.jsonReplace.addEspacioCmp(contenidoArchivo)
 
             pcrArchivos.crearArchivo(carpetas.carpetaTesting +
               regEx.jsonReplace.clsRuta(archivos[archivo]), contenidoArchivo)
