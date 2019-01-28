@@ -24,12 +24,12 @@ leerCarpeta.obtenerArchivos(carpetas.archivos)
             contenidoModificado = regEx.jsonReplace.clsComentariosIntls(contenidoModificado)
 
             let componentesArchivo = contenidoModificado.match(
-                regEx.expresiones.componentesIntelisis
+                regEx.expresiones.componentesIntls
             )
 
             for (componente in componentesArchivo) {
 
-                if (regEx.expresiones.campoConsecutivo.test(componentesArchivo[componente])) {
+                if (regEx.expresiones.campoConsecutivoIntls.test(componentesArchivo[componente])) {
 
                     contenidoArchivo = remplazar.remplazarContenido(contenidoArchivo,
                         componentesArchivo[componente], 
@@ -42,7 +42,7 @@ leerCarpeta.obtenerArchivos(carpetas.archivos)
 
             contenidoArchivo = contenidoArchivo.replace(/^\[$/m, '')
             contenidoArchivo = regEx.jsonReplace.clsSaltoLineaVacio(contenidoArchivo)
-            contenidoArchivo = regEx.jsonReplace.addEspacioComponente(contenidoArchivo)
+            contenidoArchivo = regEx.jsonReplace.addEspacioCmp(contenidoArchivo)
 
             pcrArchivos.crearArchivo(carpetas.carpetaTesting +
               regEx.jsonReplace.clsRuta(archivos[archivo]), contenidoArchivo)
