@@ -31,7 +31,7 @@ leerCarpeta.obtenerArchivos(carpetas.archivos)
                 regEx.expresiones.componentesIntls
             )
             // let camposOrdenados = []
-            let cont = 0
+            //let cont = 0
             for (componente in componentesArchivo) {
                 // console.log(componente,componentesArchivo[componente])
                 // pcrArchivos.crearArchivo('Testing/Componente-' + cont + '.txt', componentesArchivo[componente])
@@ -39,7 +39,7 @@ leerCarpeta.obtenerArchivos(carpetas.archivos)
                 // console.log('**********************************\n',regEx.expresiones.campoConsecutivo)
                 if (regEx.expresiones.campoConsecutivoIntls.test(componentesArchivo[componente])) {
                     //pcrArchivos.crearArchivo('Testing/Componente-' + cont + '.txt', componentesArchivo[componente])
-                    console.log(componentesArchivo[componente])
+                    //console.log(componentesArchivo[componente])
                     let camposUnidosComponente = unir.camposComponente(
                         componentesArchivo[componente]
                     )
@@ -49,7 +49,7 @@ leerCarpeta.obtenerArchivos(carpetas.archivos)
                         componentesArchivo[componente], camposUnidosComponente
                     )
                 }
-                 cont++
+                // cont++
             }
             
             // pcrArchivos.crearArchivo('Testing/ComponentesJoin.txt', componentesArchivo.join('\n'))
