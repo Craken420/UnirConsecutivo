@@ -21,7 +21,7 @@ leerCarpeta.obtenerArchivos(carpetas.archivos)
                 archivos[archivo])
 
             let contenidoModificado = contenidoArchivo + '\n['
-            contenidoModificado = regEx.jsonReplace.clsComentarios(contenidoModificado)
+            contenidoModificado = regEx.jsonReplace.clsComentariosIntls(contenidoModificado)
 
             let componentesArchivo = contenidoModificado.match(
                 regEx.expresiones.componentesIntelisis
@@ -41,7 +41,6 @@ leerCarpeta.obtenerArchivos(carpetas.archivos)
             }
 
             contenidoArchivo = contenidoArchivo.replace(/^\[$/m, '')
-
             contenidoArchivo = regEx.jsonReplace.clsSaltoLineaVacio(contenidoArchivo)
             contenidoArchivo = regEx.jsonReplace.addEspacioComponente(contenidoArchivo)
 
