@@ -18,6 +18,10 @@ Cambiar a la rama UnirConsecutivo en el repositorio Utilerias
 
     git checkout UnirConsecutivo
     
+Crea la carpeta Testing
+
+    mkdir Testing
+
 Correr herramienta
 
     node redouser
