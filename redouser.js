@@ -40,7 +40,10 @@ leerCarpeta.obtenerArchivos(carpetas.archivos)
                 }
             }
 
-            contenidoArchivo = contenidoArchivo.replace(/^\[$/m, '')
+            contenidoArchivo = regEx.jsonReplace.clsIniCorcheteLineaVacia(
+                                                    contenidoArchivo
+                                                )
+
             contenidoArchivo = regEx.jsonReplace.clsSaltoLineaVacio(contenidoArchivo)
             contenidoArchivo = regEx.jsonReplace.addEspacioCmp(contenidoArchivo)
 
