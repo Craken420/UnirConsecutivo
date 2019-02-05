@@ -22,6 +22,8 @@ Crea la carpeta Testing
 
     mkdir Testing
 
+Recomendación: cambiar a la rama codigoPuro de este repositorio
+
 Correr herramienta
 
     node redouser
