@@ -8,7 +8,7 @@ const recodificar = require('./Utilerias/Codificacion/contenidoRecodificado')
 
 /*** Operadores de cadena ***/
 const regEx       = require('./Utilerias/RegEx/jsonRgx')
-const { unirCamposConsecutivosComponente } = require('./Utilerias/OperarCadenas/unirConsecutivoComponente')
+const { unirCamposConsecutivosComponente } = require('./Utilerias/OperarCadenas/unirConsecutivoPorComponente')
 
 /*** Uso ***/
 leerCarpeta.obtenerArchivos(carpetas.archivos)
@@ -17,11 +17,9 @@ leerCarpeta.obtenerArchivos(carpetas.archivos)
         for (archivo in archivos) {
 
             pcrArchivos.crearArchivo(
-                carpetas.carpetaTesting + regEx.jsonReplace.clsRuta(archivos[archivo]),
-                unirCamposConsecutivosComponente(
-                    recodificar.extraerContenidoRecodificado(
-                        archivos[archivo]
-                    )
+                carpetas.carpetaTesting + regEx.Borrar.clsRuta(archivos[archivo]),
+                unirCamposConsecutivosComponente(recodificar.extraerContenidoRecodificado(
+                    archivos[archivo])
                 )
             )
         }
