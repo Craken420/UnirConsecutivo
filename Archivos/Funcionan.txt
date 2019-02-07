@@ -8,6 +8,13 @@ Visible=S
 Menu=E&xploradores Mavi
 TipoAccion=Formas
 ClaveAccion=MaviCostFletFRM
+TipoAccion=Expresion
+;ClaveAccion=RM0906PreliminarCobroFrm
+Expresion=Ejxpresion inicial <CONTINUA>
+Expresion002=<CONTINUA> expresion2 <CONTINUA>
+Expresion003=<CONTINUA> expresion3 
+Expresion002=<CONTINUA> expresion2 <CONTINUA>
+Expresion004=<CONTINUA> expresion4
 
 
 [MenuPrincipal.dlg/Acciones.EXPPrelCobro]
