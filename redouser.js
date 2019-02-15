@@ -1,23 +1,22 @@
 /*** Archivos ***/
 const carpetas    = require('./Utilerias/Archivos/carpetas')
-const leerCarpeta = require('./Utilerias/OperadoresArchivos/leerCarpeta')
+const { leerCarpetaFiltrada } = require('./Utilerias/OperadoresArchivos/readDirOnlyFile')
 
 /*** Operadores de archivos ***/
 const pcrArchivos = require('./Utilerias/OperadoresArchivos/procesadorArchivos')
 const recodificar = require('./Utilerias/Codificacion/contenidoRecodificado')
 
 /*** Operadores de cadena ***/
-const regEx       = require('./Utilerias/RegEx/jsonRgx')
 const { unirCamposConsecutivosComponente } = require('./Utilerias/OperarCadenas/unirConsecutivoPorComponente')
 
 /*** Uso ***/
-leerCarpeta.obtenerArchivos(carpetas.archivos)
+leerCarpetaFiltrada(carpetas.carpetaTesting,['.txt','.vis','.frm','.esp','.tbl','.rep','.dlg'])
     .then( archivos => {
 
         for (archivo in archivos) {
 
             pcrArchivos.crearArchivo(
-                carpetas.carpetaTesting + regEx.Borrar.clsRuta(archivos[archivo]),
+                archivos[archivo],
                 unirCamposConsecutivosComponente(recodificar.extraerContenidoRecodificado(
                     archivos[archivo])
                 )
